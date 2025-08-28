@@ -2,6 +2,7 @@ package com.ecommerce.be_ecommerce.command;
 
 import com.ecommerce.be_ecommerce.model.request.EmailRequest;
 import com.ecommerce.be_ecommerce.service.EmailService;
+import jakarta.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
@@ -20,7 +21,7 @@ public class EmailCommand {
         this.req = req;
     }
 
-    public void doExecute() {
+    public void doExecute() throws MessagingException {
         emailService.sendOrderEmail(req);
     }
 
